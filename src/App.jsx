@@ -5,8 +5,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import API from "./api";
 import { ColorRing } from "react-loader-spinner";
-
 function App() {
+  
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 

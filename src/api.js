@@ -1,9 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
+
+const url = import.meta.env.VITE_BASE_URL;
 
 export default axios.create({
-baseURL: `https://fbw11-deploy-project.onrender.com`
-
+  baseURL: url,
 });
-
-
-// baseURL: `http://localhost:5000`
