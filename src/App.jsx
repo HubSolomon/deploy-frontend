@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     const getUser = async () => {
       const res = await API.get("user/getUser", { withCredentials: true });
-      console.log(res.data._id);
       if (res.data._id) {
         setUser(res.data);
         setIsLoading(false);
@@ -25,8 +24,15 @@ function App() {
     getUser();
   }, []);
 
+  const logoutUser = async ()=> {
+    const res = await API.get("user/logout", { withCredentials: true });
+    if (res.data === "Bye bye") {
+      setUser(null)
+    }
+  }
+
   return (
-    <div className="app-container">
+    <div>
       {isLoading ? (
         <ColorRing
           visible={true}
@@ -41,12 +47,15 @@ function App() {
         <>
           {" "}
           {user ? (
-            <h2>Welcome {user.username}</h2>
+          <>  <h2>Welcome {user.username}</h2>
+          <div>
+            <button className="logout-button" onClick={logoutUser}>Logout</button>
+            </div> </>
           ) : (
-            <>
+            <div className="app-container">
               <Register />
               <Login user={user} setUser={setUser} />
-            </>
+            </div>
           )}
         </>
       )}

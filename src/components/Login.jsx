@@ -33,7 +33,7 @@ console.log(user)
           <label className="form-label" htmlFor="username">
             Email:
           </label>
-          <input type="email" defaultValue={"me@gmail.com"} placeholder="email" {...register("email", {})} />
+          <input type="email" placeholder="email" {...register("email", {})} />
         </div>
         <div className="form-group">
           <label className="form-label" htmlFor="password">
@@ -42,8 +42,7 @@ console.log(user)
           <input
           
             type="password"
-            placeholder="password"
-            defaultValue={"123456"} 
+            placeholder="password" 
             {...register("password", {})}
           />
         </div>
